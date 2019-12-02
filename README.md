@@ -1,2 +1,2 @@
 # advent_of_code
-Advent of Code projects
+https://adventofcode.com projects
