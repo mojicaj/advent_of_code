@@ -14,12 +14,16 @@ func main() {
 
 	for scanner.Scan() {
 		mass, err := strconv.ParseFloat(scanner.Text(), 32)
-
 		if err != nil {
 			return
 		}
 
-		values = append(values, calcFuel(mass))
+		fuel := calcFuel(mass)
+
+		for fuel > 0 {
+			values = append(values, fuel)
+			fuel = calcFuel(float64(fuel))
+		}
 	}
 
 	if err := scanner.Err(); err != nil {
